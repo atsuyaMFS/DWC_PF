@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get 'homes/index'
   # 新規登録・ログインログアウト
   devise_for :users ,controllers: {
     registrations: 'users/registrations',
@@ -10,8 +12,7 @@ Rails.application.routes.draw do
   end
   #  ユーザー機能
   root to: 'homes#top'
-  get 'home' => 'homes#home'
-  get 'about' => 'homes#about'
+  get '/about' => 'homes#about', as:'about'
   
    resources :posts, only: %i[create show edit update destroy] do
   end
